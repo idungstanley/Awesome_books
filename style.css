@@ -9,6 +9,7 @@
  flex-direction: column;
  justify-content: center;
  align-items: center;
+ border: 1px solid red;
 }
 
 .book-container {
@@ -18,4 +19,8 @@
 
 li{
  border-bottom: 1px solid gray;
+}
+
+form{
+ margin-top: 10px;
 }
