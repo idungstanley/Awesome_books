@@ -30,7 +30,7 @@ function createBook(event) {
     Array.from(ul).forEach(li => {
         const button = li.lastChild;
         button.addEventListener('click', () => {
-            li.textContent = ""
+            li.remove(li.childNodes);
         });
     });
 
