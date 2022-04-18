@@ -1,43 +1,42 @@
 const bookContainer = document.querySelector(".book-container");
 const author = document.querySelector("#author");
-const btn = document.querySelector(".btn")
-const form = document.getElementsByTagName('form')[0]
+const btn = document.querySelector(".btn");
+const form = document.getElementsByTagName("form")[0];
 const title = document.querySelector("#title");
 
+const array = [];
+function createBook(event) {
 
+  event.preventDefault();
+  let bookTitle = title.value;
+  let bookAuthor = author.value;
+  let book = { Title: bookTitle, Author: bookAuthor };
+    array.push(book);
+   
+  let bookList = document.createElement("li");
+  let titlep = document.createElement("p");
+  let authorP = document.createElement("p");
+  let button = document.createElement("button");
+  button.classList.add("delete");
+  button.textContent = "Remove";
+  titlep.textContent = book.Title;
+  authorP.textContent = book.Author;
+  bookList.append(titlep, authorP, button);
+  bookContainer.appendChild(bookList);
+  
 
+  const deleteBtn = document.querySelectorAll(".delete");
 
-function createBook(event){
-event.preventDefault();
-let bookTitle = title.value;
-let bookAuthor = author.value;
-let book = {Title: bookTitle, Author: bookAuthor}
-let bookList = document.createElement("li");
-let titlep = document.createElement("p");
-let authorP = document.createElement("p");
-let button = document.createElement("button")
-button.classList.add("delete");
-button.textContent = "Remove"
-titlep.textContent = book.Title;
-authorP.textContent = book.Author;
-bookList.append(titlep, authorP,button);
-bookContainer.appendChild(bookList)
-console.log(book);
+    console.log(typeof bookContainer.childNodes)
+    const ul = bookContainer.children;
 
-const deleteBtn = document.querySelectorAll(".delete");
-let allBook = Array.from(bookList)
-console.log(allBook);
+    Array.from(ul).forEach(li => {
+        const button = li.lastChild;
+        button.addEventListener('click', () => {
+            li.textContent = ""
+        });
+    });
 
-Array.from(deleteBtn).forEach(btn=>{
- btn.addEventListener("click", (e)=>{
-  e.preventDefault();
-  bookContainer.removeChild(bookList);
-  console.log(e.target);
- })
-})
-};
+}
 
-
-
-
-form.addEventListener("submit",createBook);
+form.addEventListener("submit", createBook);
