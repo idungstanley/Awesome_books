@@ -25,9 +25,6 @@ function createBook(event) {
   bookContainer.appendChild(bookList);
   
 
-  const deleteBtn = document.querySelectorAll(".delete");
-
-    console.log(typeof bookContainer.childNodes)
     const ul = bookContainer.children;
 
     Array.from(ul).forEach(li => {
