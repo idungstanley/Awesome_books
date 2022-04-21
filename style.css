@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+}
+
+.book-container {
+  list-style: none;
+}
+
+li {
+  border-bottom: 1px solid gray;
+}
+
+form {
+  margin-top: 10px;
+}
